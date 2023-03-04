@@ -4,12 +4,11 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        HttpStatusChecker checker = new HttpStatusChecker();
 
+        HttpStatusChecker checker = new HttpStatusChecker();
 
         String imageUrl = checker.getStatusImage(200);
         System.out.println("Image URL: " + imageUrl);
-
 
         String imageUrl1 = checker.getStatusImage(300);
         System.out.println("Image URL1: " + imageUrl1);
@@ -22,25 +21,12 @@ public class Main {
         }
 
         HttpStatusImageDownloader downloader = new HttpStatusImageDownloader();
-
-        try {
-            downloader.downloadStatusImage(200);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            downloader.downloadStatusImage(404);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        downloader.downloadStatusImage(200);
+        downloader.downloadStatusImage(101);
         try {
             downloader.downloadStatusImage(10000);
         } catch (RuntimeException e) {
             System.out.println("Exception caught: " + e.getMessage());
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
