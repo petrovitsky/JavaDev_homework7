@@ -1,4 +1,5 @@
 package org.example;
+
 import java.util.Scanner;
 
 public class HttpImageStatusCli {
@@ -19,6 +20,7 @@ public class HttpImageStatusCli {
             System.out.println("There is not image for HTTP status " + input);
             askStatus();
         }
+        scanner.close();
     }
 }
 
